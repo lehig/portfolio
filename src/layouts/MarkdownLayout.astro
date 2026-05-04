@@ -1,0 +1,232 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <div class="page-wrapper">
+    <!-- Decorative background blur -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <main class="container">
+      <Navbar className="animate-fade-in" />
+
+      <article class="markdown-container animate-fade-in delay-100">
+        <header class="article-header">
+          <a href="/projects" class="back-link hover-lift">&larr; Back to Projects</a>
+          <h1 class="title text-gradient">{frontmatter.title}</h1>
+          {frontmatter.description && <p class="description">{frontmatter.description}</p>}
+          {frontmatter.date && <div class="meta"><span class="tag">{frontmatter.date}</span></div>}
+        </header>
+
+        <div class="content glass-panel">
+          <slot />
+        </div>
+      </article>
+    </main>
+  </div>
+</Layout>
+
+<style is:global>
+  .page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Article Header */
+  .article-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: rgba(59, 130, 246, 0.2);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .description {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tag {
+    font-size: 0.85rem;
+    padding: 0.35rem 1rem;
+    border-radius: 99px;
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  /* Content Styling */
+  .content {
+    padding: 3.5rem;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+    color: #e2e8f0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      padding: 1.5rem;
+    }
+  }
+
+  .content h1, .content h2, .content h3 {
+    color: var(--color-text);
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.5px;
+  }
+
+  .content h1 { font-size: 2.5rem; }
+  
+  .content h2 { 
+    font-size: 2rem; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 0.5rem; 
+  }
+  
+  .content h3 { font-size: 1.5rem; }
+
+  .content p {
+    margin-bottom: 1.75rem;
+  }
+
+  .content ul, .content ol {
+    margin-bottom: 1.75rem;
+    padding-left: 1.5rem;
+  }
+
+  .content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .content a {
+    color: #93c5fd;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(147, 197, 253, 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .content a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .content strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .content blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: #94a3b8;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .content pre {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .content code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #f8fafc;
+  }
+
+  .content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 0.95em;
+  }
+
+  .content img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 2.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Decorative Glows */
+  .glow {
+    position: absolute;
+    width: 60vw;
+    max-width: 600px;
+    height: 60vw;
+    max-height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .glow-1 {
+    background: rgba(59, 130, 246, 0.2);
+    top: -10%;
+    left: -10%;
+  }
+
+  .glow-2 {
+    background: rgba(139, 92, 246, 0.2);
+    top: 40%;
+    right: -10%;
+  }
+</style>

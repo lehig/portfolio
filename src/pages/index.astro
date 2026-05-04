@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Lehi Gracia | Web Developer" description="Portfolio of Lehi Gracia, a web developer specializing in modern web experiences.">
+	<main class="container">
+		<Navbar />
+
+		<section class="hero">
+			<div class="hero-content animate-fade-in delay-200">
+				<h1 class="hero-title">
+					Building digital <br />
+					<span class="text-gradient">experiences</span>
+				</h1>
+				<p class="hero-subtitle">
+					I'm a creative developer who focuses on building interactive,
+					accessible, and beautiful web applications for local and small businesses.
+				</p>
+				<div class="cta-group">
+					<a href="/projects" class="btn btn-primary hover-lift">View My Work</a>
+					<a href="#contact" class="btn btn-secondary hover-lift">Get in Touch</a>
+				</div>
+			</div>
+			
+			<div class="hero-visual animate-fade-in delay-300">
+				<div class="glass-panel profile-card">
+					<div class="card-avatar">
+						<img class="profile-pic" src="../src/assets/9-IMG_1972.JPG" alt="Lehi Gracia" />
+					</div>
+					<div class="card-info">
+						<h3>Lehi Gracia</h3>
+						<p>Web Developer</p>
+						<div class="tech-stack">
+							<span class="tag">Astro</span>
+							<span class="tag">React</span>
+							<span class="tag">CSS</span>
+						</div>
+					</div>
+				</div>
+				<!-- Decorative background blur -->
+				<div class="glow glow-1"></div>
+				<div class="glow glow-2"></div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	/* Hero Section */
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: calc(100vh - 100px);
+		gap: 4rem;
+	}
+
+	.hero-content {
+		flex: 1;
+		max-width: 600px;
+	}
+
+	.hero-title {
+		font-size: clamp(3rem, 5vw, 4.5rem);
+		letter-spacing: -2px;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: #94a3b8;
+		margin-bottom: 2.5rem;
+		max-width: 500px;
+	}
+
+	/* Buttons */
+	.cta-group {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.btn {
+		padding: 0.875rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		display: inline-block;
+	}
+
+	.btn-primary {
+		background: var(--gradient-primary);
+		color: white;
+	}
+
+	.btn-secondary {
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.15);
+	}
+
+	/* Hero Visual */
+	.hero-visual {
+		flex: 1;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.profile-card {
+		padding: 2rem;
+		width: 320px;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.profile-pic {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		transform: scale(1.2);
+	}
+
+	.card-avatar {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: var(--gradient-text);
+		margin: 0 auto;
+	}
+
+	.card-info {
+		text-align: center;
+	}
+
+	.card-info h3 {
+		font-size: 1.5rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.card-info p {
+		color: #94a3b8;
+		margin-bottom: 1.5rem;
+	}
+
+	.tech-stack {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 99px;
+		background: rgba(59, 130, 246, 0.2);
+		color: #93c5fd;
+		border: 1px solid rgba(59, 130, 246, 0.3);
+	}
+
+	/* Decorative Glows */
+	.glow {
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		filter: blur(100px);
+		z-index: 1;
+	}
+
+	.glow-1 {
+		background: rgba(59, 130, 246, 0.3);
+		top: -50px;
+		left: 0;
+	}
+
+	.glow-2 {
+		background: rgba(139, 92, 246, 0.3);
+		bottom: -50px;
+		right: 0;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero {
+			flex-direction: column;
+			text-align: center;
+			padding-top: 2rem;
+		}
+
+		.hero-subtitle {
+			margin: 0 auto 2.5rem auto;
+		}
+
+		.cta-group {
+			justify-content: center;
+		}
+	}
+</style>

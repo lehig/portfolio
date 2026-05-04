@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+// Fetch all markdown files in the same directory using import.meta.glob
+const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
+---
+
+<Layout title="Projects | Lehi Gracia" description="A collection of my projects.">
+  <div class="page-wrapper">
+    <!-- Decorative background blur -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <main class="container">
+      <Navbar />
+
+      <section class="projects-header animate-fade-in delay-200">
+        <h1 class="title text-gradient">My Projects</h1>
+        <p class="subtitle">A collection of things I've built and experimented with.</p>
+      </section>
+
+      <div class="projects-grid animate-fade-in delay-300">
+        {projects.map((project) => (
+          <a href={project.url} class="project-card hover-lift glass-panel">
+            <h2>{project.frontmatter.title}</h2>
+            {project.frontmatter.date && <span class="tag">{project.frontmatter.date}</span>}
+            <p>{project.frontmatter.description}</p>
+            <div class="card-footer">
+              <span class="read-more">Read Project &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Header */
+  .projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+  }
+
+  /* Grid & Cards */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .project-card p {
+    color: #94a3b8;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+
+  .tag {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+
+  .project-card:hover .read-more {
+    color: #93c5fd;
+    transform: translateX(4px);
+  }
+
+  /* Decorative Glows */
+  .glow {
+    position: absolute;
+    width: 60vw;
+    max-width: 600px;
+    height: 60vw;
+    max-height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .glow-1 {
+    background: rgba(59, 130, 246, 0.25);
+    top: -10%;
+    left: -10%;
+  }
+
+  .glow-2 {
+    background: rgba(139, 92, 246, 0.25);
+    bottom: -10%;
+    right: -10%;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

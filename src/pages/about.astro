@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="About | Lehi Gracia" description="About Lehi Gracia, a web developer based in the area.">
+  <div class="page-wrapper">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <main class="container">
+      <Navbar />
+
+      <section class="about-section animate-fade-in delay-200">
+        <div class="about-content">
+          <h1 class="title text-gradient">About Me</h1>
+          <p class="subtitle">
+            I'm a passionate web developer dedicated to crafting modern, high-performance web experiences.
+          </p>
+          
+          <div class="glass-panel about-card">
+            <div class="card-body">
+              <h2>My Journey</h2>
+              <p>
+                My journey into web development started with a simple curiosity about how things work on the internet. 
+                Since then, I've dedicated my time to learning modern technologies like Astro, React, and advanced CSS to build 
+                fast, accessible, and visually stunning applications.
+              </p>
+              
+              <h2>What I Do</h2>
+              <p>
+                I specialize in creating interactive digital experiences that not only look great but also perform exceptionally well. 
+                Whether it's a personal portfolio, a small business website, or a complex web application, I approach every project 
+                with the same level of enthusiasm and attention to detail.
+              </p>
+
+              <h2>When I'm Not Coding</h2>
+              <p>
+                Outside of coding, I'm always looking for ways to stay inspired. You might find me exploring new design trends, 
+                experimenting with new tech stacks, or just taking a break to enjoy the simple things in life.
+              </p>
+            </div>
+            <div class="card-visual">
+              <div class="image-wrapper">
+                <img src="../src/assets/9-IMG_1972.JPG" alt="Lehi Gracia" class="about-image" />
+                <div class="image-glow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .about-section {
+    padding-top: 2rem;
+  }
+
+  .title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .about-card {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .card-body {
+    flex: 1;
+  }
+
+  .card-body h2 {
+    font-size: 1.75rem;
+    color: var(--color-text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-body h2:first-child {
+    margin-top: 0;
+  }
+
+  .card-body p {
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .about-image {
+    width: 100%;
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .image-glow {
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-primary);
+    filter: blur(40px);
+    opacity: 0.3;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  /* Decorative Glows */
+  .glow {
+    position: absolute;
+    width: 60vw;
+    max-width: 600px;
+    height: 60vw;
+    max-height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .glow-1 {
+    background: rgba(59, 130, 246, 0.25);
+    top: 10%;
+    left: -10%;
+  }
+
+  .glow-2 {
+    background: rgba(139, 92, 246, 0.25);
+    bottom: -10%;
+    right: -10%;
+  }
+
+  @media (min-width: 768px) {
+    .about-card {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "animate-fade-in delay-100" } = Astro.props;
+---
+
+<nav class={`navbar ${className}`}>
+  <a href="/" class="logo text-gradient" style="text-decoration: none;">LG.</a>
+  <div class="nav-links">
+    <a href="/projects">Projects</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+</style>
