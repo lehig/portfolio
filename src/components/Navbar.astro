@@ -7,11 +7,11 @@ const { className = "animate-fade-in delay-100" } = Astro.props;
 ---
 
 <nav class={`navbar ${className}`}>
-  <a href="/" class="logo text-gradient" style="text-decoration: none;">LG.</a>
+  <a href={import.meta.env.BASE_URL} class="logo text-gradient" style="text-decoration: none;">LG.</a>
   <div class="nav-links">
-    <a href="/portfolio/projects">Projects</a>
-    <a href="/portfolio/about">About</a>
-    <a href="/portfolio/contact">Contact</a>
+    <a href={`${import.meta.env.BASE_URL}projects`}>Projects</a>
+    <a href={`${import.meta.env.BASE_URL}about`}>About</a>
+    <a href={`${import.meta.env.BASE_URL}contact`}>Contact</a>
   </div>
 </nav>
 

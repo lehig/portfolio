@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
 
       <article class="markdown-container animate-fade-in delay-100">
         <header class="article-header">
-          <a href="/projects" class="back-link hover-lift">&larr; Back to Projects</a>
+          <a href={`${import.meta.env.BASE_URL}projects`} class="back-link hover-lift">&larr; Back to Projects</a>
           <h1 class="title text-gradient">{frontmatter.title}</h1>
           {frontmatter.description && <p class="description">{frontmatter.description}</p>}
           {frontmatter.date && <div class="meta"><span class="tag">{frontmatter.date}</span></div>}

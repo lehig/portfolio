@@ -22,7 +22,7 @@ const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as a
 
       <div class="projects-grid animate-fade-in delay-300">
         {projects.map((project) => (
-          <a href={project.url} class="project-card hover-lift glass-panel">
+          <a href={`${import.meta.env.BASE_URL}${project.url?.startsWith('/') ? project.url.slice(1) : project.url}`} class="project-card hover-lift glass-panel">
             <h2>{project.frontmatter.title}</h2>
             {project.frontmatter.date && <span class="tag">{project.frontmatter.date}</span>}
             <p>{project.frontmatter.description}</p>
