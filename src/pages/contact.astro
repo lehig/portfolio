@@ -110,11 +110,12 @@ import Navbar from "../components/Navbar.astro";
             </div>
           </div>
 
-          <form
-            class="glass-panel contact-form"
-            onsubmit="event.preventDefault(); alert('Form submission is a placeholder for now!');"
-          >
-            <input type="hidden" name="access_key" value="8aa3d1f5-c404-4fb9-bcb4-07293db622eb">
+          <form class="glass-panel contact-form" method="POST" id="form">
+            <input
+              type="hidden"
+              name="access_key"
+              value="8aa3d1f5-c404-4fb9-bcb4-07293db622eb"
+            />
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -150,6 +151,12 @@ import Navbar from "../components/Navbar.astro";
             <button type="submit" class="btn btn-primary hover-lift submit-btn">
               Send Message
             </button>
+
+            <div
+              id="result"
+              style="margin-top: 1rem; text-align: center; color: #94a3b8;"
+            >
+            </div>
           </form>
           <script is:inline>
             const form = document.getElementById("form");
@@ -188,8 +195,8 @@ import Navbar from "../components/Navbar.astro";
                 .then(function () {
                   form.reset();
                   setTimeout(() => {
-                    result.style.display = "none";
-                  }, 3000);
+                    result.innerHTML = ""; // Clear the text instead of hiding the div
+                  }, 5000); // 5 seconds gives them more time to read it
                 });
             });
           </script>
