@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import profilePic from '../assets/9-IMG_1972.jpg';
 ---
 
 <Layout title="About | Lehi Gracia" description="About Lehi Gracia, a web developer based in the area.">
@@ -42,7 +43,7 @@ import Navbar from '../components/Navbar.astro';
             </div>
             <div class="card-visual">
               <div class="image-wrapper">
-                <img src="../src/assets/9-IMG_1972.JPG" alt="Lehi Gracia" class="about-image" />
+                <img src={profilePic.src} alt="Lehi Gracia" class="about-image" />
                 <div class="image-glow"></div>
               </div>
             </div>

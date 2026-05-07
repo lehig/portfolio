@@ -9,7 +9,7 @@ date: May 5, 2026
 
 [SendAFile](https://github.com/lehig/Send-A-File) is a high-performance desktop utility designed for secure, direct file synchronization across LAN and WAN environments. Built with C# and .NET, it bypasses the security risks and speed bottlenecks of third-party cloud storage by establishing a direct, encrypted "pipe" between two machines.
 
-![SendAFile](/src/assets/send-a-file-screenshot.png)
+![SendAFile](../../assets/send-a-file-screenshot.png)
 
 ## The Engineering Challenge
 

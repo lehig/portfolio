@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import profilePic from '../assets/9-IMG_1972.jpg';
 ---
 
 <Layout title="Lehi Gracia | Web Developer" description="Portfolio of Lehi Gracia, a web developer specializing in modern web experiences.">
@@ -26,7 +27,7 @@ import Navbar from '../components/Navbar.astro';
 			<div class="hero-visual animate-fade-in delay-300">
 				<div class="glass-panel profile-card">
 					<div class="card-avatar">
-						<img class="profile-pic" src="../src/assets/9-IMG_1972.JPG" alt="Lehi Gracia" />
+						<img class="profile-pic" src={profilePic.src} alt="Lehi Gracia" />
 					</div>
 					<div class="card-info">
 						<h3>Lehi Gracia</h3>

@@ -7,7 +7,7 @@ date: June 30, 2025
 
 [This project](https://lehig.github.io/Row-Reduction/) demonstrates the ability to transform complex mathematical models and proprietary business logic into a high-performance, web-based tool. While many developers rely on pre-built libraries, this application features a from-scratch engine designed for precision, speed, and cross-platform flexibility.
 
-![rref](/src/assets/rref-screenshot.png)
+![rref](../../assets/rref-screenshot.png)
 
 ## Key Strengths & Client Value
 

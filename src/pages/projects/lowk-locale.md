@@ -7,7 +7,7 @@ date: February 12, 2026
 
 [Lowk Locale](https://lowklocale.com/) is a production-grade, high-performance web platform designed to bridge the gap between mobile businesses and their customers in real time. Beyond a simple directory, it serves as a comprehensive business management suite that enables food trucks and vendors to broadcast their locations, manage subscriptions, and engage their audience through a secure, enterprise-level architecture.
 
-![](/src/assets/lowk-screenshot.png)
+![](../../assets/lowk-screenshot.png)
 
 ## Key Features & Client Benefits
 
